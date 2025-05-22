@@ -1,0 +1,273 @@
+<form [formGroup]="userForm">
+    <div class="col-12">
+        <div class="card">
+            <h5>Parâmetros Mercado Livre</h5>
+
+            <div class="p-fluid p-formgrid grid">
+               
+
+                <div class="field col-12 md:col-12">
+                    <label htmlFor="piscofinsitem">PIS/COFINS do Ítem</label>
+                    <p-dropdown [options]="piscofinsitem" id="piscofinsitem" optionLabel="label"
+                        formControlName="piscofinsitem" placeholder="Selecione PIS/COFINS"
+                        (onChange)="buscaDadosProduto()">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-12">
+                    <label htmlFor="modelocredito">Modelo de Crédito</label>
+                    <p-dropdown [options]="modelocredito" id="modelocredito" optionLabel="label"
+                        formControlName="modelocredito" placeholder="Selecione Crédito"
+                        (onChange)="modelocreditoMl($event)">
+                    </p-dropdown>
+                </div>
+
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="custonfeentrada">Custo NFE de entrada</label>
+                    <p-inputNumber id="custonfeentrada" (onFocus)="onInputFocus($event)"
+                        formControlName="custonfeentrada" inputId="minmaxfraction" mode="decimal"
+                        [minFractionDigits]="2" [maxFractionDigits]="2"> </p-inputNumber>
+
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="freteentrada">FRETE NFE de entrada</label>
+                    <p-inputNumber id="freteentrada" (onFocus)="onInputFocus($event)" formControlName="freteentrada"
+                        inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    </p-inputNumber>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="itementrada">Ítem NFE de entrada</label>
+                    <p-inputNumber id="itementrada" (onFocus)="onInputFocus($event)" formControlName="itementrada"
+                        inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    </p-inputNumber>
+
+                </div>
+
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="ipientrada">% IPI NFE de entrada</label>
+                    <div class="p-inputgroup">
+                        <!-- <input pInputText id="ipientrada" formControlName="ipientrada" type="text" /> -->
+                        <p-inputNumber id="ipientrada" formControlName="ipientrada" inputId="minmaxfraction"
+                            mode="decimal" (onFocus)="onInputFocus($event)" [minFractionDigits]="2"
+                            [maxFractionDigits]="2"> </p-inputNumber>
+                        <span class="p-inputgroup-addon">%</span>
+                    </div>
+                </div>
+
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="custosistema">Custo calculado ( preenchimento automático )</label>
+                    <p-inputNumber id="custosistema" formControlName="custosistema" inputId="minmaxfraction"
+                        mode="decimal" (onFocus)="onInputFocus($event)" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    </p-inputNumber>
+
+                </div>
+
+
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="precoproposto"><b>* Preço proposto *</b></label>
+                    <p-inputNumber (click)="consolidaCustoCalculado()" id="precoproposto"
+                        formControlName="precoproposto" inputId="minmaxfraction" mode="decimal"
+                        (onFocus)="onInputFocus($event)" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    </p-inputNumber>
+                </div>
+
+
+                <!--  <div class="field col-12 md:col-4">
+                    <label htmlFor="precoComMargem"><b>Preço com MARGEM aplicada</b></label>
+                    <p-inputNumber id="precoComMargem" formControlName="precoComMargem" inputId="minmaxfraction"
+                        mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2"> </p-inputNumber>
+                </div> -->
+
+                <p-toast position="top-center" key="precificacaoReiniciada" [life]="1500"></p-toast>
+                <p-toast position="top-center" key="precificacaoSalva" [life]="1500"></p-toast>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="tipoAnuncio">Tipo do anúncio</label>
+                    <p-dropdown [options]="tipoAnuncio" id="tipoAnuncio" optionLabel="label"
+                        formControlName="tipoAnuncio" placeholder="Selecione tipo de anúncio"
+                        (onChange)="tipoAnuncioMl($event)">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="despesaVendaMl">Despesa de venda Mercado Livre</label>
+                    <p-inputNumber id="despesaVendaMl" formControlName="despesaVendaMl" inputId="minmaxfraction"
+                        mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2"> </p-inputNumber>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="envioml">Frete padrão ML</label>
+                    <p-dropdown [options]="envioml" id="envioml" optionLabel="label" formControlName="envioml"
+                        placeholder="Selecione Frete" (onChange)="calculaFreteMl($event)"></p-dropdown>
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="freteaplicado">Frete aplicado</label>
+                    <input pInputText id="freteaplicado" formControlName="freteaplicado" type="text" />
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="comissaovendedorperc">% Comissão Vendedor</label>
+                    <p-inputNumber formControlName="comissaovendedorperc" [showButtons]="true" buttonLayout="horizontal"
+                        inputId="horizontal" spinnerMode="horizontal" [step]="0.5"
+                        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
+                        incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+                    </p-inputNumber>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="comissaovendedor">Comissão Vendedor</label>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">R$</span>
+                        <input pInputText id="comissaovendedor" formControlName="comissaovendedor" type="text" />
+                    </div>
+                </div>
+
+                <!--    <div class="field col-12 md:col-4">
+                    <label htmlFor="envioml">Frete padrão ML</label>
+                    <p-dropdown [options]="envioml" id="envioml" optionLabel="label" formControlName="envioml"
+                        placeholder="Selecione Frete" (onChange)="calculaFreteMl($event)"></p-dropdown>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label htmlFor="freteaplicado">Frete aplicado</label>
+                    <input pInputText id="freteaplicado" formControlName="freteaplicado" type="text" />
+                </div> -->
+
+
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="pis">PIS</label>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">R$</span>
+                        <input pInputText id="pis" formControlName="pis" type="text" />
+                    </div>
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="cofins">COFINS</label>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">R$</span>
+                        <input pInputText id="cofins" formControlName="cofins" type="text" />
+                    </div>
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="icms">ICMS</label>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">R$</span>
+                        <input pInputText id="icms" formControlName="icms" type="text" />
+                    </div>
+                </div>
+
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="difal">% DIFAL</label>
+                    <p-inputNumber formControlName="difal" [showButtons]="true" buttonLayout="horizontal"
+                        inputId="horizontal" spinnerMode="horizontal" [step]="1" decrementButtonClass="p-button-danger"
+                        incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+                        decrementButtonIcon="pi pi-minus">
+                    </p-inputNumber>
+                </div>
+
+                <!--  <div class="field col-12 md:col-3">
+                    <label htmlFor="ncm">NCM</label>
+                    <input pInputText id="ncm" formControlName="ncm" type="text" />
+                </div> -->
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="piscofins">CLASSIFICAÇÃO</label>
+                    <input pInputText id="piscofins" formControlName="piscofins" type="text" />
+                </div>
+
+
+                <div class="flex flex-wrap gap-2 col-12 md:col-12">
+                    <button pButton pRipple label="Calcular" icon="pi pi-calculator" iconPos="right"
+                        (click)="calculaCustos()"></button>
+                </div>
+                <div class="flex flex-wrap gap-2 col-12 md:col-12">
+                    <button pButton pRipple label="Reiniciar" icon="pi pi-refresh" iconPos="right"
+                        class="p-button-raised p-button-warning" (click)="onReset()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="col-12" style="background-color: beige;">
+        <div class="card">
+            <h5>CUSTOS POR TIPO</h5>
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="somaVendaMl">Custo produto + Frete + taxa ML</label>
+                    <input pInputText id="somaVendaMl" formControlName="somaVendaMl" type="text" />
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="pis">PIS</label>
+                    <input pInputText id="pis" formControlName="pis" type="text" />
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="cofins">COFINS</label>
+                    <input pInputText id="cofins" formControlName="cofins" type="text" />
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="icms">ICMS</label>
+                    <input pInputText id="icms" formControlName="icms" type="text" />
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="col-12 mt-4" style="background-color: darkgrey;">
+        <div class="card">
+            <h5>Débitos tributários</h5>
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="despesaVendaMl"></label>
+                    <input pInputText id="despesaVendaMl" formControlName="despesaVendaMl" type="text" />
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="temp"></label>
+                    <input pInputText id="temp" formControlName="temp" type="text" />
+                </div>
+                <div class="field col-12 md:col-3">
+                    <label htmlFor="despesaVendaMl"></label>
+                    <input pInputText id="despesaVendaMl" formControlName="despesaVendaMl" type="text" />
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="card" id="tabela" #tabela>
+        <div class="field col-12 md:col-12 mb-6">
+            <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+        </div>
+        <p-table [value]="events" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Elemento de cálculo</th>
+                    <th>Valor em real</th>
+                    <th>Valor percentual do preço de venda</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{ product.status }}</td>
+                    <!-- Aqui é onde você formata o valor com duas casas decimais -->
+                    <td>R$ {{ product.data | number: '1.2-2' }}</td>
+                    <td>{{ (( product.data / valorprecoproposto ) * 100) | number: '1.2-2' }} %</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div *ngIf="dadosPreco" class="card" id="tabela2" #tabela2>
+        <p-table [value]="dadosPreco" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                   <th>Preço Venda</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product2>
+                <tr>
+                    <td>R$ {{ product2.preco_venda | number: '1.2-2' }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</form>

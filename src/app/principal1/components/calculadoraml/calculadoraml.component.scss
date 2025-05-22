@@ -1,0 +1,9 @@
+.input-button-container {
+    display: flex;
+    align-items: left;
+    gap: 1px;
+}
+
+input[pInputText] {
+    flex: 1; 
+}

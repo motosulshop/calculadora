@@ -1,0 +1,75 @@
+{
+	"data": [
+		{
+			"id": "1001",
+			"database": "01/08/2023",
+			"qtdVendedoresAtivos": 6,
+			"totalReposicao": "1345.65",
+			"totalAditivos": "478.90",
+			"totalVendas": "4123.78",
+			"statusDataBase": "Em andamento",
+			"vendedores": [
+				{
+					"id": "1001-0",
+					"nome": "vendedorA",
+					"dataInicioOperacao": "01/08/2023",
+					"dataFimOperacao": "10/08/2023",
+					"valorVendas": "3000.50",
+					"valorReposicao": "500.00",
+					"valorAditivo": "120.00",
+					"status": "DELIVERED"
+				},
+				{
+					"id": "1001-1",
+					"nome": "vendedorB",
+					"dataInicioOperacao": "01/08/2023",
+					"dataFimOperacao": "15/08/2023",
+					"valorVendas": "2500.00",
+					"valorReposicao": "300.00",
+					"valorAditivo": "110.00",
+					"status": "DELIVERED"
+				},
+				{
+					"id": "1001-2",
+					"nome": "vendedorC",
+					"dataInicioOperacao": "05/08/2023",
+					"dataFimOperacao": "20/08/2023",
+					"valorVendas": "2800.00",
+					"valorReposicao": "200.00",
+					"valorAditivo": "150.00",
+					"status": "RETURNED"
+				},
+				{
+					"id": "1001-3",
+					"nome": "vendedorD",
+					"dataInicioOperacao": "01/08/2023",
+					"dataFimOperacao": "12/08/2023",
+					"valorVendas": "3100.00",
+					"valorReposicao": "450.00",
+					"valorAditivo": "130.00",
+					"status": "DELIVERED"
+				},
+				{
+					"id": "1001-4",
+					"nome": "vendedorE",
+					"dataInicioOperacao": "02/08/2023",
+					"dataFimOperacao": "16/08/2023",
+					"valorVendas": "3200.00",
+					"valorReposicao": "400.00",
+					"valorAditivo": "160.00",
+					"status": "DELIVERED"
+				},
+				{
+					"id": "1001-5",
+					"nome": "vendedorF",
+					"dataInicioOperacao": "01/08/2023",
+					"dataFimOperacao": "18/08/2023",
+					"valorVendas": "3400.00",
+					"valorReposicao": "350.00",
+					"valorAditivo": "180.00",
+					"status": "PENDING"
+				}
+			]
+		}
+	]
+}

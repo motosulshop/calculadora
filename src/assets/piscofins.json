@@ -1,0 +1,26 @@
+[
+      {
+        "descricao": "Normal 4%",
+        "cod": "1",
+        "pis_cofins": "Normal"
+      },
+      {
+        "descricao": "Normal 12%",
+        "cod": "2",
+        "pis_cofins": "Normal"
+      },
+      {
+        "descricao": "Mono 4%",
+        "cod": "3",
+        "pis_cofins": "Monofasico"
+      },
+      {
+        "descricao": "Normal 12%",
+        "cod": "4",
+        "pis_cofins": "Monofasico"
+      },
+      {
+        "descricao": "Outros",
+        "cod": "5",
+        "pis_cofins": "Nenhum"
+      } ]
