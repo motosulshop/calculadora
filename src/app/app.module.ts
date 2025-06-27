@@ -13,10 +13,9 @@ import { PhotoService } from './principal1/service/photo.service';
 import { HttpClientModule } from '@angular/common/http';
 //import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { ChapamComponent } from './principal1/components/chapam/chapam.component';
 
 @NgModule({
-    declarations: [AppComponent, ChapamComponent],
+    declarations: [AppComponent],
     imports: [
         AppRoutingModule,
         AppLayoutModule,
