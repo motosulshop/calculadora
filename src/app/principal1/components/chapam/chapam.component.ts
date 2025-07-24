@@ -14,13 +14,13 @@ export class ChapamComponent {
 
   }
   ngOnInit() {
-
-    this.apiService.getProdutos().subscribe(
-      dados => this.products = dados,
-      erro => console.error('Erro ao buscar produtos', erro)      
-    );
-    console.log(this.products)
-    
+    this.apiService.getProdutos().subscribe({
+      next: dados => {
+        this.products = dados;
+        console.log(this.products);
+      },
+      error: erro => console.error('Erro ao buscar produtos', erro)
+    });
   }
 
 }
