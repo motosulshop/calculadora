@@ -8,6 +8,7 @@ import { UserService } from 'src/app/layout/service/user.service';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { SalvaOrcamento } from 'src/app/layout/service/salva_orcamento.service';
 import { ListaProdutosService } from 'src/app/layout/service/lista-produtos.service';
+import { ApichapamService } from '../../service/apichapam.service';
 
 
 interface EventItem {
@@ -108,11 +109,18 @@ export class CalculadoramlComponent implements OnInit {
   ];
 
 
-  constructor(private fb: FormBuilder, private userService: UserService, private http: HttpClient,
+  constructor(private fb: FormBuilder, private apiService: ApichapamService, private http: HttpClient,
     private confirmationService: ConfirmationService, private messageService: MessageService, private salvaOrcamento: SalvaOrcamento, private listaProdutosService: ListaProdutosService) {
 
   }
   ngOnInit() {
+
+
+  this.apiService.getProdutos().subscribe(
+    dados => console.log(dados),
+    erro => console.error('Erro ao buscar produtos', erro)
+  );
+
 
     this.userForm = this.fb.group({
       piscofinsitem: ['', Validators.required],
