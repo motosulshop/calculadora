@@ -115,13 +115,6 @@ export class CalculadoramlComponent implements OnInit {
   }
   ngOnInit() {
 
-
-  this.apiService.getProdutos().subscribe(
-    dados => console.log(dados),
-    erro => console.error('Erro ao buscar produtos', erro)
-  );
-
-
     this.userForm = this.fb.group({
       piscofinsitem: ['', Validators.required],
       tipoAnuncio: [{ value: '', disabled: true }],
