@@ -20,6 +20,7 @@ import { ChartModule } from 'primeng/chart';
 import { TimelineModule } from 'primeng/timeline';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
+import { DataViewModule } from 'primeng/dataview';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ToastModule } from 'primeng/toast';
         ChartModule,
         TimelineModule,
         TableModule,
-        ToastModule
+        ToastModule,
+        DataViewModule
     ],
     declarations: [ChapamComponent]
 })
