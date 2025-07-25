@@ -13,12 +13,11 @@ import { ApichapamService } from '../../service/apichapam.service';
 export class ChapamComponent implements OnInit {
 
   products!: any[];
-
   constructor(private productService: ApichapamService) { }
 
  ngOnInit() {
   this.productService.getProdutos().subscribe((data) => {
-    this.products = data.success.response.data.slice(0, 5);
+    this.products = data.success.response.data;//.slice(0, 5);
     console.log(this.products);
   });
 }
