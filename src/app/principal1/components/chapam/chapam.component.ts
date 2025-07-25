@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataViewModule } from 'primeng/dataview';
+import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
+import { CommonModule } from '@angular/common';
 import { ApichapamService } from '../../service/apichapam.service';
 
 @Component({
@@ -6,21 +10,33 @@ import { ApichapamService } from '../../service/apichapam.service';
   templateUrl: './chapam.component.html',
   styleUrls: ['./chapam.component.scss']
 })
-export class ChapamComponent {
+export class ChapamComponent implements OnInit {
 
   products!: any[];
 
-  constructor(private apiService: ApichapamService,) {
+  constructor(private productService: ApichapamService) { }
 
-  }
-  ngOnInit() {
-    this.apiService.getProdutos().subscribe({
-      next: dados => {
-        this.products = dados;
-        console.log(this.products);
-      },
-      error: erro => console.error('Erro ao buscar produtos', erro)
-    });
-  }
+ ngOnInit() {
+  this.productService.getProdutos().subscribe((data) => {
+    this.products = data.success.response.data.slice(0, 5);
+    console.log(this.products);
+  });
+}
 
+
+  getSeverity(product: any) {
+    switch (product.inventoryStatus) {
+      case 'INSTOCK':
+        return 'success';
+
+      case 'LOWSTOCK':
+        return 'warning';
+
+      case 'OUTOFSTOCK':
+        return 'danger';
+
+      default:
+        return null;
+    }
+  };
 }
