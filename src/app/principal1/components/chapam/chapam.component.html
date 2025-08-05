@@ -1,4 +1,4 @@
-<p-dataView #dv [value]="products">
+<!-- <p-dataView #dv [value]="products">
     <ng-template pTemplate="list" let-products>
         <div class="grid grid-nogutter">
             <div class="col-12" *ngFor="let item of products; let first = first" class="col-12">
@@ -28,9 +28,12 @@
                         <div class="flex flex-column md:align-items-end gap-5">
                             <span class="text-xl font-semibold text-900">Cód. CHAPAM {{ item.codigo }}</span>
                             <div class="flex flex-row-reverse md:flex-row gap-2">
-                               <!--  <p-button icon="pi pi-heart" [outlined]="true" /> -->
+                                <p-button icon="pi pi-heart" [outlined]="true" />
                                 <p-button
                                     class="flex-auto md:flex-initial white-space-nowrap" label="Consultar"
+                                    [disabled]="item.inventoryStatus === 'OUTOFSTOCK'" />
+                                <p-button
+                                    class="flex-auto md:flex-initial white-space-nowrap" label="Baixar fotos"
                                     [disabled]="item.inventoryStatus === 'OUTOFSTOCK'" />
                             </div>
                         </div>
@@ -40,3 +43,107 @@
         </div>
     </ng-template>
 </p-dataView>
+ -->
+
+<div class="card">
+    <p-table
+        #dt1
+        [value]="products"
+        [globalFilterFields]="['nome', 'codigo']"
+        selectionMode="single"
+        [(selection)]="products"
+        dataKey="id"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [rows]="5"
+        [paginator]="true"
+        stateStorage="session"
+        stateKey="statedemo-session">
+        <ng-template pTemplate="caption">
+            <p-iconField iconPosition="left">
+                <p-inputIcon>
+                    <i class="pi pi-search">&nbsp;</i>
+                </p-inputIcon>
+                <input 
+                    pInputText 
+                    type="text" 
+                    (input)="dt1.filterGlobal($event.target.value, 'contains')" 
+                    placeholder="Global Search" />
+            </p-iconField>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="codigo" style="width:25%">
+                    Código <p-sortIcon field="products.codigo" />
+                </th>
+                <th pSortableColumn="nome" style="width:25%">
+                    Produto <p-sortIcon field="products.nome" />
+                </th>
+                <th pSortableColumn="products.nome" style="width:25%">
+                    111 
+                </th>
+                <th pSortableColumn="status" style="width:25%">
+                    222 <p-sortIcon field="status" />
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+            <tr [pSelectableRow]="customer">
+                <td>
+                    <span class="p-column-title">Código</span>
+                    {{products.codigo }}
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span>
+                    
+                    <span class="ml-1 vertical-align-middle">{{ customer.nome}}</span>
+                </td>
+                <td>
+                    <span class="p-column-title">Representative</span>
+                    <img 
+                        [alt]="teste" 
+                        src={{customer.imagem_principal}}
+                        width="32" 
+                        style="vertical-align: middle" />
+                    <span class="ml-1 vertical-align-middle"></span>
+                </td>
+                <td>
+                    <span class="p-column-title">Status</span>
+                    <p-tag [value]="customer.status" [severity]="getSeverity(customer.status)" />
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+            <tr [pSelectableRow]="customer">
+                <td>
+                    <span class="p-column-title">Name</span>
+                    {{ customer.codigo }}
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span>
+                    <img 
+                        src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" 
+                        style="width: 20px" />
+                    <span class="ml-1 vertical-align-middle">{{ customer.nome }}</span>
+                </td>
+                <td>
+                    <span class="p-column-title">Representative</span>
+                    <img 
+                        [alt]="customer.nome" 
+                        src="{{ customer.imagem_principal }}" 
+                        width="32" 
+                        style="vertical-align: middle" />
+                    <span class="ml-1 vertical-align-middle"></span>
+                </td>
+                <td>
+                    <span class="p-column-title">Status</span>
+                    <p-tag [value]="customer.status" [severity]="getSeverity(customer.nome)" />
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="4">No customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

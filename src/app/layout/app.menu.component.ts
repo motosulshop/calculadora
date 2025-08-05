@@ -26,6 +26,14 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Estoque Chapam', icon: 'pi pi-fw pi-home', routerLink: ['/chapam'] }
                 ]
             },          
+            {
+                label: 'LEEDS',
+                items: [
+                    { label: 'Cadastro de leeds', icon: 'pi pi-fw pi-home', routerLink: ['/leeds'] },
+                    { label: 'Retorno de leeds', icon: 'pi pi-fw pi-home', routerLink: ['/retornoleeds'] },
+                    { label: 'Listagem de leeds', icon: 'pi pi-fw pi-home', routerLink: ['/listagemleeds'] }
+                ]
+            },          
            /*  {
                 label: 'Lançamentos',
                 items: [

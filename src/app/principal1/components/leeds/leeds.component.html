@@ -1,0 +1,65 @@
+<form>
+    <div class="col-12">
+        <div class="card">
+            <h5>Cadastro de Leeds de atendimento</h5>
+
+            <div class="p-fluid p-formgrid grid">
+
+
+                <div class="field col-12 md:col-12">
+                    <label htmlFor="origemleed">Origem do leed</label>
+                    <p-dropdown  id="origemleed" optionLabel="label"
+                       placeholder="Selecione ORIGEM">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-12">
+                    <label htmlFor="destinoleed">Destino do Leed</label>
+                    <p-dropdown  id="destinoleed" optionLabel="label"
+                       placeholder="Selecione Destino">
+                    </p-dropdown>
+                </div>
+
+                <div class="field col-12 md:col-4">
+                    <label htmlFor="nomecliente">Nome cliente</label>
+                    <p-inputNumber id="nomecliente"  inputId="minmaxfraction" mode="decimal"
+                        [minFractionDigits]="2" [maxFractionDigits]="2"> </p-inputNumber>
+                </div>
+
+                <div class="field col-12 md:col-4">
+                    <label htmlFor="fonecliente">Telefone do Cliente</label>
+                    <p-inputNumber id="fonecliente"
+                        inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    </p-inputNumber>
+                </div>
+
+                <div class="field col-12 md:col-4">
+                    <label htmlFor="datacontato">Data do contato</label>
+                    <p-inputNumber id="datacontato" 
+                        inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    </p-inputNumber>
+                </div>
+              
+                <div class="field col-12 md:col-12">
+                    <label htmlFor="itempequisado">Item de interesse do cliente</label>
+                    <p-inputNumber id="itempequisado" inputId="minmaxfraction"
+                        mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    </p-inputNumber>
+                </div>
+                <p-toast position="top-center" key="precificacaoReiniciada" [life]="1500"></p-toast>
+                <p-toast position="top-center" key="precificacaoSalva" [life]="1500"></p-toast>
+               
+
+                <div class="flex flex-wrap gap-2 col-12 md:col-12">
+                    <button pButton pRipple label="Cadastrar" icon="pi pi-plus" iconPos="right"
+                       ></button>
+                </div>
+                <div class="flex flex-wrap gap-2 col-12 md:col-12">
+                    <button pButton pRipple label="Limpar" icon="pi pi-refresh" iconPos="right"
+                        class="p-button-raised p-button-warning"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
