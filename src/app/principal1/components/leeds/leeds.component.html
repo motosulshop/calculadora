@@ -8,14 +8,14 @@
 
                 <div class="field col-12 md:col-12">
                     <label htmlFor="origemleed">Origem do leed</label>
-                    <p-dropdown  id="origemleed" optionLabel="label"
+                    <p-dropdown [options]="origemleed" id="origemleed" optionLabel="label"
                        placeholder="Selecione ORIGEM">
                     </p-dropdown>
                 </div>
 
                 <div class="field col-12 md:col-12">
                     <label htmlFor="destinoleed">Destino do Leed</label>
-                    <p-dropdown  id="destinoleed" optionLabel="label"
+                    <p-dropdown [options]="destinoleed" id="destinoleed" optionLabel="label"
                        placeholder="Selecione Destino">
                     </p-dropdown>
                 </div>
@@ -42,12 +42,12 @@
               
                 <div class="field col-12 md:col-12">
                     <label htmlFor="itempequisado">Item de interesse do cliente</label>
-                    <p-inputNumber id="itempequisado" inputId="minmaxfraction"
+                    <p-inputNumber id="itempesquisado" inputId="minmaxfraction"
                         mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
                     </p-inputNumber>
                 </div>
-                <p-toast position="top-center" key="precificacaoReiniciada" [life]="1500"></p-toast>
-                <p-toast position="top-center" key="precificacaoSalva" [life]="1500"></p-toast>
+                <p-toast position="top-center" key="toastex" [life]="1500"></p-toast>
+                <p-toast position="top-center" key="alertaex" [life]="1500"></p-toast>
                
 
                 <div class="flex flex-wrap gap-2 col-12 md:col-12">
