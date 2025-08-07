@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LeedsRoutingModule } from './leeds-routing.module';
-import { LeedsComponent } from './leeds.component'; 
+import { LeadsRoutingModule } from './leads-routing.module';
+import { LeadsComponent } from './leads.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
@@ -26,7 +26,7 @@ import { DataViewModule } from 'primeng/dataview';
 @NgModule({
     imports: [
         CommonModule,
-        LeedsRoutingModule,
+        LeadsRoutingModule,
         AutoCompleteModule,
         CalendarModule,        
         FormsModule,
@@ -48,7 +48,7 @@ import { DataViewModule } from 'primeng/dataview';
         ToastModule,
         DataViewModule
     ],
-    declarations: [LeedsComponent]
+    declarations: [LeadsComponent]
 })
-export class LeedsModule { }
+export class LeadsModule { }
 

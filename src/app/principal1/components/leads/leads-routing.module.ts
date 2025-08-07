@@ -1,11 +1,11 @@
-import { LeedsComponent } from './leeds.component';
+import { LeadsComponent } from './leads.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', component: LeedsComponent }
+        { path: '', component: LeadsComponent }
     ])],
     exports: [RouterModule]
 })
-export class LeedsRoutingModule { }
+export class LeadsRoutingModule { }

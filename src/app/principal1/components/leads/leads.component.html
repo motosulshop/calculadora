@@ -1,49 +1,49 @@
-<form>
+<form [formGroup]="userForm">
     <div class="col-12">
         <div class="card">
-            <h5>Cadastro de Leeds de atendimento</h5>
+            <h5>Cadastro de Leads de atendimento</h5>
 
             <div class="p-fluid p-formgrid grid">
 
 
                 <div class="field col-12 md:col-12">
-                    <label htmlFor="origemleed">Origem do leed</label>
-                    <p-dropdown [options]="origemleed" id="origemleed" optionLabel="label"
+                    <label htmlFor="origemlead">Origem do lead</label>
+                    <p-dropdown formControlName="origemlead" [options]="origemlead" id="origemlead" optionLabel="label"
                        placeholder="Selecione ORIGEM">
                     </p-dropdown>
                 </div>
 
                 <div class="field col-12 md:col-12">
-                    <label htmlFor="destinoleed">Destino do Leed</label>
-                    <p-dropdown [options]="destinoleed" id="destinoleed" optionLabel="label"
+                    <label htmlFor="destinolead">Destino do Lead</label>
+                    <p-dropdown formControlName="destinolead" [options]="destinolead" id="destinolead" optionLabel="label"
                        placeholder="Selecione Destino">
                     </p-dropdown>
                 </div>
 
                 <div class="field col-12 md:col-4">
                     <label htmlFor="nomecliente">Nome cliente</label>
-                    <p-inputNumber id="nomecliente"  inputId="minmaxfraction" mode="decimal"
-                        [minFractionDigits]="2" [maxFractionDigits]="2"> </p-inputNumber>
+                    <p-inputNumber formControlName="nomecliente" id="nomecliente"   
+                        > </p-inputNumber>
                 </div>
 
                 <div class="field col-12 md:col-4">
                     <label htmlFor="fonecliente">Telefone do Cliente</label>
-                    <p-inputNumber id="fonecliente"
-                        inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    <p-inputNumber formControlName="fonecliente" id="fonecliente"
+                          >
                     </p-inputNumber>
                 </div>
 
                 <div class="field col-12 md:col-4">
                     <label htmlFor="datacontato">Data do contato</label>
-                    <p-inputNumber id="datacontato" 
-                        inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    <p-inputNumber formControlName="datacontato" id="datacontato" 
+                        >
                     </p-inputNumber>
                 </div>
               
                 <div class="field col-12 md:col-12">
-                    <label htmlFor="itempequisado">Item de interesse do cliente</label>
-                    <p-inputNumber id="itempesquisado" inputId="minmaxfraction"
-                        mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="2">
+                    <label htmlFor="itempesquisado">Item de interesse do cliente</label>
+                    <p-inputNumber formControlName="itempesquisado" id="itempesquisado" 
+                         >
                     </p-inputNumber>
                 </div>
                 <p-toast position="top-center" key="toastex" [life]="1500"></p-toast>

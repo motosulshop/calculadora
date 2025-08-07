@@ -24,8 +24,8 @@ if ($conn->connect_error) {
 $data = json_decode(file_get_contents("php://input"), true);
 
 // Prepara os dados (ou null se não existir)
-$origem_leed = $data['origem_leed'] ?? null;
-$destino_leed = $data['destino_leed'] ?? null;
+$origem_lead = $data['origem_lead'] ?? null;
+$destino_lead = $data['destino_lead'] ?? null;
 $nome_cliente = $data['nome_cliente'] ?? null;
 $fone_cliente = $data['fone_cliente'] ?? null;
 $data_contato = $data['data_contato'] ?? null;
@@ -41,7 +41,7 @@ $outras_observacoes = $data['outras_observacoes'] ?? null;
 // Prepara a SQL com parâmetros
 $stmt = $conn->prepare("
     INSERT INTO contatos_leads (
-        origem_leed, destino_leed, nome_cliente, fone_cliente, data_contato,
+        origem_lead, destino_lead, nome_cliente, fone_cliente, data_contato,
         item_pesquisado, vendedor_ativo, data_conclusao, resumo_final, valor_vendido,
         data_nascimento_cliente, agendamento_contato_futuro, outras_observacoes
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -57,7 +57,7 @@ if (!$stmt) {
 // Vincula os parâmetros
 $stmt->bind_param(
     "sssssssssdsss",
-    $origem_leed, $destino_leed, $nome_cliente, $fone_cliente, $data_contato,
+    $origem_lead, $destino_lead, $nome_cliente, $fone_cliente, $data_contato,
     $item_pesquisado, $vendedor_ativo, $data_conclusao, $resumo_final, $valor_vendido,
     $data_nascimento_cliente, $agendamento_contato_futuro, $outras_observacoes
 );

@@ -12,7 +12,7 @@ import { AuthGuard } from './layout/service/auth/auth.guard';
                     { path: '', loadChildren: () => import('./principal1/components/calculadoraml/calculadoraml.module').then(m => m.CalculadoramlModule) },
                     { path: 'calculadoraml', loadChildren: () => import('./principal1/components/calculadoraml/calculadoraml.module').then(m => m.CalculadoramlModule) },
                     { path: 'chapam', loadChildren: () => import('./principal1/components/chapam/chapam.module').then(m => m.ChapamModule) },
-                    { path: 'leeds', loadChildren: () => import('./principal1/components/leeds/leeds.module').then(m => m.LeedsModule) },
+                    { path: 'leads', loadChildren: () => import('./principal1/components/leads/leads.module').then(m => m.LeadsModule) },
                     ]
             },
           /*   { path: 'auth', loadChildren: () => import('./principal1/components/auth/auth.module').then(m => m.AuthModule) },

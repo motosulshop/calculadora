@@ -27,11 +27,11 @@ export class AppMenuComponent implements OnInit {
                 ]
             },          
             {
-                label: 'LEEDS',
+                label: 'LeadS',
                 items: [
-                    { label: 'Cadastro de leeds', icon: 'pi pi-fw pi-home', routerLink: ['/leeds'] },
-                    { label: 'Retorno de leeds', icon: 'pi pi-fw pi-home', routerLink: ['/retornoleeds'] },
-                    { label: 'Listagem de leeds', icon: 'pi pi-fw pi-home', routerLink: ['/listagemleeds'] }
+                    { label: 'Cadastro de leads', icon: 'pi pi-fw pi-home', routerLink: ['/leads'] },
+                    { label: 'Retorno de leads', icon: 'pi pi-fw pi-home', routerLink: ['/retornoleads'] },
+                    { label: 'Listagem de leads', icon: 'pi pi-fw pi-home', routerLink: ['/listagemleads'] }
                 ]
             },          
            /*  {
