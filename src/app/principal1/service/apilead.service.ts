@@ -8,11 +8,12 @@ import { catchError } from 'rxjs/operators';
 })
 export class ApileadService {
 
-  private apiUrl = 'http://seuservidor.com/inserir_lead.php'; // 🔁 Altere para sua URL real
+  private apiUrl = 'https://www.motosulshop.com.br/calculadora/backcalculadora/salvelead.php';
 
   constructor(private http: HttpClient) { }
 
   inserirLead(leadData: any): Observable<any> {
+    console.log(leadData);
     return this.http.post<any>(this.apiUrl, leadData)
       .pipe(
         catchError(this.tratarErro)
