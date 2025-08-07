@@ -2,16 +2,15 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
-// Configurações do banco
+header("Content-Type: application/json");
+
+
+
 $host = 'localhost';
 $db = 'motosulshop';
 $user = 'seu_usuario_mysql';
 $pass = 'sua_senha_mysql';
 
-// Cabeçalhos para permitir CORS e JSON
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
 
 // Conexão com o banco
 $conn = new mysqli($host, $user, $pass, $db);
