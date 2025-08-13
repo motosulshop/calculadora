@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class ApileadService {
 
-  private apiUrl = 'https://www.motosulshop.com.br/calculadora/backcalculadora/salvelead.php';
+  private apiUrl = 'http://localhost/teste/salvalead.php';
 
   constructor(private http: HttpClient) { }
 

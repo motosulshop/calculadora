@@ -28,25 +28,25 @@ export class LeadsComponent {
 
     this.userForm = this.fb.group({
           origemlead: ['', Validators.required],
-          destinolead: [{ value: '', disabled: true }],
-          nomecliente: [{ value: '', disabled: true }],
-          fonecliente: [{ value: '', disabled: true }],
-          datacontato: [{ value: '', disabled: true }],
-          itempesquisado: [{ value: '', disabled: true }]
+          destinolead: [{ value: '', disabled: false }],
+          nomecliente: [{ value: '', disabled: false }],
+          fonecliente: [{ value: '', disabled: false }],
+          datacontato: [{ value: '', disabled: false }],
+          itempesquisado: [{ value: '', disabled: false }]
          
         });
     
   };
 
   enviarFormulario() {
-    alert(5)
+    console.log(this.userForm.value)
     const dadosLead = {
-      origem_lead: 'Instagram',
-      destino_lead: 'WhatsApp',
-      nome_cliente: 'João Silva',
-      fone_cliente: '49999999999',
-      data_contato: '2025-08-05',
-      item_pesquisado: 'Capacete Norisk',
+      origem_lead: this.userForm.value.origemlead,
+      destino_lead: this.userForm.value.destinolead,
+      nome_cliente: this.userForm.value.nomecliente,
+      fone_cliente: this.userForm.value.fonecliente,
+      data_contato: this.userForm.value.datacontato,
+      item_pesquisado: this.userForm.value.itempesquisado,
       /* vendedor_ativo: 'Carlos',
       data_conclusao: null,
       resumo_final: 'Cliente interessado',
@@ -56,16 +56,16 @@ export class LeadsComponent {
       outras_observacoes: 'Prefere contato por WhatsApp à noite' */
     };
 
-    this.leadService.inserirLead(dadosLead).subscribe({
+    /* this.leadService.inserirLead(dadosLead).subscribe({
       next: (res) => {
         console.log('Resposta do servidor:', res);
-        // aqui você pode exibir uma mensagem de sucesso no template
+       
       },
       error: (err) => {
         console.error('Erro ao enviar lead:', err);
-        // aqui você pode exibir mensagem de erro
+        
       }
-    });
+    }); */
   }
 
 }
